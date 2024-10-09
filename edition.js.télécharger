@@ -1,0 +1,159 @@
+$(function(){
+	$('textarea').live('keydown', function(e){
+		var code = (e.keyCode ? e.keyCode : e.which);
+		var string = $(this).val();
+		var Position = $(this).getPos();
+		if (code == 9){
+			$(this).addText("\t");
+			return false;
+		}
+		else if (code == 8){
+			CaractereAvant = string.charAt(Position - 1);
+			Caractere = string.charAt(Position);
+			if ((CaractereAvant == '"' && Caractere == '"') || (CaractereAvant == "'" && Caractere == "'") || (CaractereAvant == "{" && Caractere == "}") || (CaractereAvant == "(" && Caractere == ")")){
+				$(this).val(string.slice(0, Position - 1) + string.slice(Position + 1));
+				$(this).setPos(Position - 1);
+				return false;
+			}
+		}
+	});
+
+	$('textarea').live('keypress', function(e){
+		var code = (e.keyCode ? e.keyCode : e.which);
+		var DoubleBalise = 0;
+		var string = $(this).val();
+		var Position = $(this).getPos();
+		var Ajout = '\n';
+		var Balise = "";
+		var Crochet = 0;
+		var Slash = 0;
+		var GuillemetParanthese = 0;
+		if (code == 41 || code == 125 || code == 39 || code == 34){
+			if (string.charCodeAt(Position) == code) {
+				$(this).setPos(Position + 1);
+				return false;
+			}
+			else if (string.charCodeAt(Position - 1) == 9){
+				$(this).val(string.slice(0, Position - 1) + String.fromCharCode(code) + string.slice(Position));
+				$(this).setPos(Position);
+				return false;
+			}
+		}
+		if (code == 40){
+			$(this).addText('()');
+			$(this).setPos(Position + 1);
+			return false;
+		}
+		else if (code == 123){
+			$(this).addText('{}');
+			$(this).setPos(Position + 1);
+			return false;
+		}
+		else if (code == 39){
+			$(this).addText("''");
+			$(this).setPos(Position + 1);
+			return false;
+		}
+		else if (code == 34){
+			$(this).addText('""');
+			$(this).setPos(Position + 1);
+			return false;
+		}
+		else if (code == 13){
+			if (string.charCodeAt(Position - 1) == 40 || string.charCodeAt(Position - 1) == 123){
+				GuillemetParanthese = 1;
+			}
+			if (string.charCodeAt(Position) == 60){
+				DoubleBalise = 1;
+			}
+			do {
+				Position = Position - 1;
+				Caractere = string.charCodeAt(Position);
+				if(Caractere == 9){
+					Ajout += '\t';
+				}
+				else if ((Caractere == 60) || (Caractere == 62)){
+					Crochet = 1;
+				}
+				else if (Caractere == 47){
+					Slash = 1;
+				}
+			}
+			while(Caractere != 10 && Position >= 0);
+
+			if ((Crochet == 1) && (Slash == 0)){
+				if (DoubleBalise == 1){
+					PositionInitiale = $(this).getPos() + Ajout.length + 1;
+					Ajout = Ajout + '\t' + Ajout;
+					$(this).addText(Ajout);
+					$(this).setPos(PositionInitiale);
+				}
+				else if (Crochet == 1) {
+					Ajout += '\t';
+					$(this).addText(Ajout);
+				}
+			}
+			else if (GuillemetParanthese == 1){
+				PositionInitiale = $(this).getPos() + Ajout.length + 1;
+				Ajout = Ajout + '\t' + Ajout;
+				$(this).addText(Ajout);
+				$(this).setPos(PositionInitiale);
+			}
+			else {
+				$(this).addText(Ajout);
+			}
+			return false;
+		}
+		else if (code == 47) {
+			if ((string.charAt(Position-1) == "<") && (string.charAt(Position - 2) == "	")){
+				$(this).val(string.slice(0, Position - 2) + "</" + string.slice(Position));
+				$(this).setPos(Position);
+				return false;
+			}
+		}
+		else if (code == 61){
+			TestBalise = true;
+			PositionInitiale = Position;
+			do{
+				Position--;
+				Caractere = string.charAt(Position);
+				if (Caractere == "/" || Caractere == "\t" || Caractere == ">" || Position == -1){
+					TestBalise = false;
+				}
+			}
+			while (Caractere != "<" && Caractere != "/" && Caractere != "\t" && Caractere != ">" && Position >= 0);
+			if (TestBalise){
+				$(this).addText('=""');
+				$(this).setPos(PositionInitiale+2);
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+		else if (code == 62){
+			$(this).addText('>');
+			PositionInitiale = Position + 1;
+			Position--;
+			Caractere = "";
+			Balise = "";
+			TestBalise = true;
+			do {
+				Caractere = string.charCodeAt(Position);
+				Balise = string.charAt(Position) + Balise;
+				if (Caractere == 47 || Caractere == 10 || Caractere == 7){
+					TestBalise = false;
+				}
+				Position--;
+			}
+			while (Caractere != 60 && Caractere != 47 && Caractere != 10);
+			if (TestBalise == true){
+				Balise = Balise.slice(1).split(' ');
+				Balise = "</" + Balise[0] + ">";
+				$(this).addText(Balise);
+				$(this).setPos(PositionInitiale);
+			}
+			return false;
+		}
+	});	
+});

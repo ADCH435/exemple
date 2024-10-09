@@ -1,0 +1,338 @@
+
+<!-- saved from url=(0011)about:blank -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>body {
+	text-align: center;
+	margin-top: 100px;
+	font-family: arial;
+	color: #123456
+}</style></head><body>
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pétition #NoFoodWaste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background: url('https://images.unsplash.com/photo-1606787363070-88b52958d7c1') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            position: relative;
+        }
+
+        /* Overlay pour améliorer la lisibilité du texte */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        header {
+            background-color: rgba(255, 69, 0, 0.8);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #FF4500;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li i {
+            color: #FF4500;
+            margin-right: 10px;
+        }
+
+        strong {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 1.1em;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            transition: border 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #FF4500;
+            outline: none;
+        }
+
+        button {
+            padding: 12px;
+            background-color: #FF4500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #e63900;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1em;
+        }
+
+        a {
+            color: #FF4500;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Barres de progression pour les signatures */
+        .progress-bar {
+            width: 100%;
+            background-color: #f3f3f3;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .progress {
+            background-color: #FF4500;
+            height: 25px;
+            border-radius: 20px;
+            width: 75%; /* Exemple de 75% des signatures obtenues */
+            line-height: 25px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Section statistiques */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 30%;
+            transition: transform 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-item i {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #FF4500;
+        }
+
+        .stat-item p {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin: 40px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .call-to-action h2 {
+            font-size: 2em;
+            color: #FF4500;
+            margin-bottom: 15px;
+        }
+
+        .call-to-action p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Styles pour les images de sensibilisation */
+        .sensitivity-images {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .sensitivity-images img {
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
+
+    <header>
+        <h1>#NoFoodWaste</h1>
+        <p>Rejoignez notre mouvement global pour réduire le gaspillage alimentaire et protéger notre planète !</p>
+    </header>
+
+    <section id="introduction">
+        <h2>Pourquoi signer la pétition #NoFoodWaste ?</h2>
+        <p>Chaque année, des millions de tonnes de nourriture sont jetées, alors que des millions de personnes souffrent de la faim. La pétition #NoFoodWaste vise à réduire le gaspillage alimentaire à travers des politiques plus responsables et des actions concrètes.</p>
+    </section>
+
+    <!-- Ajout de statistiques visuelles -->
+    <section class="stats">
+        <div class="stat-item">
+            <i class="fas fa-trash-alt"></i>
+            <p><strong>1,3 milliard</strong> de tonnes de nourriture jetées chaque année</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-hamburger"></i>
+            <p><strong>25%</strong> des calories mondiales sont perdues chaque année</p>
+        </div>
+        <div class="stat-item">
+            <i class="fas fa-globe"></i>
+            <p><strong>8%</strong> des émissions de gaz à effet de serre proviennent du gaspillage alimentaire</p>
+        </div>
+    </section>
+
+    <section id="petition">
+        <h2>Nos revendications</h2>
+        <ul>
+            <li><i class="fas fa-recycle"></i> Imposer des limites strictes au gaspillage alimentaire d'ici 2025</li>
+            <li><i class="fas fa-leaf"></i> Encourager les supermarchés à redistribuer les invendus</li>
+            <li><i class="fas fa-school"></i> Introduire des programmes de sensibilisation au gaspillage alimentaire dans les écoles</li>
+            <li><i class="fas fa-cogs"></i> Favoriser l'économie circulaire pour réutiliser les excédents alimentaires</li>
+        </ul>
+    </section>
+
+  
+    
+
+    <section id="signatures">
+        <h2>Signez la pétition maintenant</h2>
+
+        <!-- Barre de progression des signatures -->
+        <div class="progress-bar">
+            <div class="progress">75%</div> <!-- Exemple de 75% des signatures obtenues -->
+        </div>
+
+        <!-- Formulaire de signature -->
+        <form id="signature-form">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" required="" placeholder="Entrez votre nom">
+
+            <label for="email">Adresse e-mail:</label>
+            <input type="email" id="email" required="" placeholder="Entrez votre adresse e-mail">
+
+            <button type="submit">Signer la pétition</button>
+        </form>
+    </section>
+
+    <div class="call-to-action">
+        <h2>Agissez maintenant !</h2>
+        <p>Ne restez pas en dehors de cette lutte. Chaque signature compte et peut faire la différence. Rejoignez-nous dans notre quête pour réduire le gaspillage alimentaire et protéger notre planète pour les générations futures.</p>
+    </div>
+
+    <footer>
+        <p>Merci de soutenir la cause #NoFoodWaste !</p>
+        <p><a href="https://codebetter.lucaswillems.com/#">En savoir plus sur nos initiatives</a></p>
+    </footer>
+
+    
+
+
+</body></html>
